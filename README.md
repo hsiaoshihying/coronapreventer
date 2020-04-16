@@ -1,24 +1,33 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+コロナ対策グッズの事前予約システム
 
-Things you may want to cover:
+## なぜ作りたい
+### コロナの広がりによるカオス
+* コロナに対するパニックのため、マスクやトイレットペーパーなど爆買い
+* いつ入荷するのか全く分からない
+* せっかくドラッグストアに電話をかけて、入荷するかどうか確認する
+* 営業時間始める前、行列する
 
-* Ruby version
+### 解決したいこと
+* 爆買いを防ぐ
+* 行列しなくても買える
+* ドラッグストアが電話をたくさん受けるという迷惑を避ける
 
-* System dependencies
+## 何の機能を付けたい
+### ドラッグストア側
+* アカント作成・変更・削除
+* 登録できるinfo：名前、電話、アクセス
+* 商品管理（品名、写真、数量、入荷時間、予約状況）
+* フォロワーの一覧表（購入記録、グッズ受け取り期日）
+* 入荷通知
+* 問い合わせ
+　
+###消費者側
+* アカント作成・変更・削除
+* 登録できるinfo：名前、電話、メール
+* 身分認証（マイナンバー？運転免許？）
+* フォロー中のお店の一覧表・お店の一覧表（名前、電話、アクセス、商品数量）
+* グッズ予約
+* 入荷通知を受ける
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
