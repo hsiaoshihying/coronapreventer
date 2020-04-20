@@ -1,0 +1,23 @@
+<% provide(:title, "Edit Store") %>
+<h1>プロフィール変更</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@store_user) do |f| %>
+      <%= render 'shared/error_messages_for_store' %>
+
+      <%= f.label :店名 %>
+      <%= f.text_field :name, class: 'form-control' %>
+
+      <%= f.label :携帯電話・固定電話 %>
+      <%= f.phone_field :phone, class: 'form-control' %>
+
+      <%= f.label :"住所(123-4567東京都港区)" %>
+      <%= f.text_field :address, class: 'form-control' %>
+
+      <%= f.submit "更新", class: "btn btn-primary" %>
+    <% end %>
+    <%= link_to "キャンセル", store_user_path(current_user), class: "btn btn-lg btn-primary" %>
+
+  </div>
+</div>

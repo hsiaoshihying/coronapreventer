@@ -1,6 +1,10 @@
 <% provide(:title, "MyPage") %>
-<h1>My Page</h1>
+<h1>マイページ</h1>
 
-<%= @customer_user.name %>
-<%= @customer_user.phone %>
-<%= @customer_user.email %>
+<div class="row">
+  <%= @customer_user.name %><br>
+  <%= @customer_user.phone %><br>
+  <%= link_to "プロフィール変更", edit_customer_user_path, class: "btn btn-lg btn-primary" %>
+  <%= link_to "退会", customer_user_path, method: :delete,
+              data: { confirm: "退会しますか？" }, class: "btn btn-lg btn-primary" %>
+</div>

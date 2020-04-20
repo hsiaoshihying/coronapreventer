@@ -1,0 +1,23 @@
+<% provide(:title, "LogIn") %>
+<h1>ログイン</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(:session, url: login_path) do |f| %>
+      <%= f.label :store_user, "ドラッグストア" %>
+      <%= f.radio_button :user, 'store', class: "form-check-input" %>
+      <%= f.label :customer_user, "消費者" %>
+      <%= f.radio_button :user, 'customer', class: "form-check-input" %>
+
+      <%= f.label :email %>
+      <%= f.email_field :email, class: 'form-control' %>
+
+      <%= f.label :password %>
+      <%= f.password_field :password, class: 'form-control' %>
+
+      <%= f.submit "ログイン", class: "btn btn-primary" %>
+    <% end %>
+
+    <p>まだ登録してないですか? <%= link_to "新規登録の方こちら!", store_signup_path %></p>
+  </div>
+</div>

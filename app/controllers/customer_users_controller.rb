@@ -10,10 +10,25 @@ class CustomerUsersController < ApplicationController
   def create
     @customer_user = CustomerUser.new(user_params)
     if @customer_user.save
+      log_in @customer_user
       flash[:success] = "登録成功！！買い物はじめよう"
       redirect_to @customer_user
     else
       render 'customer_users/new'
+    end
+  end
+
+  def edit
+    @customer_user = CustomerUser.find(params[:id])
+  end
+
+  def update
+    @customer_user = CustomerUser.find(params[:id])
+    if @customer_user.update_attributes(user_params)
+      flash[:success] = "プロフィール更新された！"
+      redirect_to @customer_user
+    else
+      render 'customer_users/edit'
     end
   end
 

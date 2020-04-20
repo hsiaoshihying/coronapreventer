@@ -1,2 +1,7 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+drugstore:
+  name: Drug Store
+  phone: 08012345678
+  address: 108-0014東京都港区芝浦三丁目1番21号
+  email: drugstore@example.com
+  password_digest: <%= StoreUser.digest('password') %>
 

@@ -1,0 +1,26 @@
+<% provide(:title, "Edit Customer") %>
+<h1>プロフィール変更</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@customer_user) do |f| %>
+      <%= render 'shared/error_messages_for_customer' %>
+
+      <%= f.label :名前 %>
+      <%= f.text_field :name, class: 'form-control' %>
+
+      <%= f.label :携帯電話・固定電話 %>
+      <%= f.phone_field :phone, class: 'form-control' %>
+
+      <%= f.label :パスワード %>
+      <%= f.password_field :password, class: 'form-control' %>
+
+      <%= f.label :"パスワード（確認）" %>
+      <%= f.password_field :password_confirmation, class: 'form-control' %>
+
+      <%= f.submit "更新", class: "btn btn-primary" %>
+    <% end %>
+    <%= link_to "キャンセル", customer_user_path(current_user), class: "btn btn-lg btn-primary" %>
+
+  </div>
+</div>
