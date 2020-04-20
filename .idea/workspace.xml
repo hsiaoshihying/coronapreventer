@@ -1,24 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b9581006-35ed-49e0-83b0-310b40eec898" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/custom.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/custom.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/application_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/application_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/customer_users_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/customer_users_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/store_users_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/store_users_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/customer_user.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/customer_user.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/store_user.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/store_user.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/customer_users/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/customer_users/show.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/layouts/_header.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/_header.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/store_users/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/store_users/show.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/fixtures/customer_users.yml" beforeDir="false" afterPath="$PROJECT_DIR$/test/fixtures/customer_users.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/fixtures/store_users.yml" beforeDir="false" afterPath="$PROJECT_DIR$/test/fixtures/store_users.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/integration/customer_users_signup_test.rb" beforeDir="false" afterPath="$PROJECT_DIR$/test/integration/customer_users_signup_test.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/integration/store_users_signup_test.rb" beforeDir="false" afterPath="$PROJECT_DIR$/test/integration/store_users_signup_test.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/test_helper.rb" beforeDir="false" afterPath="$PROJECT_DIR$/test/test_helper.rb" afterDir="false" />
-    </list>
+    <list default="true" id="b9581006-35ed-49e0-83b0-310b40eec898" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -194,6 +177,9 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="LAST_COMMIT_MESSAGE" value="" />
   </component>
   <component name="WindowStateProjectService">
     <state x="634" y="315" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1587380485022">
