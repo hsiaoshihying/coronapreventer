@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   root 'static_pages#home'
   resources :customer_users
   resources :store_users
+  # resources :password_resets, only: [:new, :create, :edit, :update]
 end

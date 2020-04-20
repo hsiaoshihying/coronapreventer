@@ -1,4 +1,5 @@
 class StoreUser < ApplicationRecord
+  attr_accessor :remember_token, :activation_token, :reset_token
   before_save { email.downcase! }
 
   validates :name, presence: true, length: { maximum: 50 }
@@ -19,4 +20,5 @@ class StoreUser < ApplicationRecord
                BCrypt::Engine.cost
     BCrypt::Password.create(string, cost: cost)
   end
+
 end
