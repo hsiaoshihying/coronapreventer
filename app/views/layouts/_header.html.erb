@@ -3,8 +3,12 @@
     <%= link_to "Coronapreventer", root_path, id: "logo" %>
     <nav>
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "マイページ",   '#' %></li>
-        <li><%= link_to "ログイン", '#' %></li>
+        <% if logged_in? %>
+          <li><%= link_to "マイページ", current_user %></li>
+          <li><%= link_to "ログアウト", logout_path, method: :delete %></li>
+        <% else %>
+          <li><%= link_to "ログイン", login_path %></li>
+        <% end %>
       </ul>
     </nav>
   </div>
