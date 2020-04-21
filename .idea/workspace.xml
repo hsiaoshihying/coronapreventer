@@ -3,12 +3,20 @@
   <component name="ChangeListManager">
     <list default="true" id="b9581006-35ed-49e0-83b0-310b40eec898" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/javascript/packs/application.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/application.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/customer_user.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/customer_user.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/store_user.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/store_user.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/customer_users/edit.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/customer_users/edit.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/customer_users/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/customer_users/new.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/sessions/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/sessions/new.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/store_users/edit.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/store_users/edit.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/initializers/assets.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/initializers/assets.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/schema.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/schema.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/webpack/environment.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/webpack/environment.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/integration/customer_users_edit_test.rb" beforeDir="false" afterPath="$PROJECT_DIR$/test/integration/customer_users_edit_test.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/integration/store_users_edit_test.rb" beforeDir="false" afterPath="$PROJECT_DIR$/test/integration/store_users_edit_test.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/integration/users_login_test.rb" beforeDir="false" afterPath="$PROJECT_DIR$/test/integration/users_login_test.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,8 +40,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="ERB File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -169,7 +177,7 @@
       <workItem from="1587015695774" duration="16359000" />
       <workItem from="1587093109014" duration="14528000" />
       <workItem from="1587122931721" duration="3591000" />
-      <workItem from="1587385004084" duration="1837000" />
+      <workItem from="1587385004084" duration="16435000" />
     </task>
     <servers />
   </component>
@@ -177,10 +185,14 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="561" y="251" width="670" height="676" key="search.everywhere.popup" timestamp="1587386017116">
+    <state x="634" y="315" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1587445360046">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state x="561" y="251" width="670" height="676" key="search.everywhere.popup/0.0.1792.1120@0.0.1792.1120" timestamp="1587386017116" />
+    <state x="634" y="315" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1792.1120@0.0.1792.1120" timestamp="1587445360046" />
+    <state x="561" y="251" width="670" height="676" key="search.everywhere.popup" timestamp="1587470676682">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state x="561" y="251" width="670" height="676" key="search.everywhere.popup/0.0.1792.1120@0.0.1792.1120" timestamp="1587470676682" />
     <state x="561" y="251" width="670" height="676" key="search.everywhere.popup/0.23.1792.1097@0.23.1792.1097" timestamp="1587345968042" />
   </component>
 </project>

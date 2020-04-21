@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   post '/store_signup', to: 'store_users#create'
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
-  delete 'logout', to: 'sessions#destroy'
+  delete '/logout', to: 'sessions#destroy'
   root 'static_pages#home'
   resources :customer_users
   resources :store_users
