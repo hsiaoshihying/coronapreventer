@@ -1,0 +1,21 @@
+ja:
+  activerecord:
+    models:
+      store_user: ストア
+      customer_user: 消費者
+    attributes:
+      store_user:
+        name: 店名
+        phone: 携帯電話・固定電話
+        address: 住所
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: パスワード（確認用）
+
+      customer_user:
+        name: 名前
+        phone: 携帯電話・固定電話
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: パスワード（確認用）
+

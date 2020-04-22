@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
         log_in user
         redirect_to user
       else
-        flash.now[:danger] = 'Invalid email/password combination' # 本当は正しくない
+        flash.now[:danger] = 'メールアドレスまたはパスワードが有効ではありません' # 本当は正しくない
         render 'new'
       end
     elsif params[:session][:user] == "customer"
@@ -18,7 +18,7 @@ class SessionsController < ApplicationController
         log_in user
         redirect_to user
       else
-        flash.now[:danger] = 'Invalid email/password combination' # 本当は正しくない
+        flash.now[:danger] = 'メールアドレスまたはパスワードが有効ではありません' # 本当は正しくない
         render 'new'
       end
     else
