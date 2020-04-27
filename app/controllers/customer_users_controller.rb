@@ -1,4 +1,5 @@
 class CustomerUsersController < ApplicationController
+
   def show
     @customer_user = CustomerUser.find(params[:id])
   end
@@ -24,7 +25,7 @@ class CustomerUsersController < ApplicationController
 
   def update
     @customer_user = CustomerUser.find(params[:id])
-    if @customer_user.update_attributes(user_params)
+    if @customer_user.update(user_params)
       flash[:success] = "プロフィール更新された！"
       redirect_to @customer_user
     else

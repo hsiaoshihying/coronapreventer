@@ -90,4 +90,12 @@ class StoreUserTest < ActiveSupport::TestCase
     @store_user.save
     assert_equal mixed_case_email.downcase, @store_user.reload.email
   end
+
+  test "associated products should be destroyed along with destroying store user" do
+    @store_user.save
+    @store_user.products.create!(name: "mask", price: 500, total_num: 100)
+    assert_difference 'Product.count', -1 do
+      @store_user.destroy
+    end
+  end
 end

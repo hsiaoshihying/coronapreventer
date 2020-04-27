@@ -1,0 +1,7 @@
+<% if @feed_items.any? %>
+  <h3>商品 (<%= @feed_items.count %>)</h3>
+  <ol class="products">
+    <%= render @feed_items %>
+  </ol>
+  <%= will_paginate @feed_items %>
+<% end %>

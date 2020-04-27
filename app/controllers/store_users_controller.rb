@@ -1,7 +1,12 @@
 class StoreUsersController < ApplicationController
+  def index
+    @store_users = StoreUser.paginate(page: params[:page], per_page: 10)
+  end
+
   def show
     @store_user = StoreUser.find(params[:id])
   end
+
 
   def new
     @store_user = StoreUser.new
@@ -24,7 +29,7 @@ class StoreUsersController < ApplicationController
 
   def update
     @store_user = StoreUser.find(params[:id])
-    if @store_user.update_attributes(user_params)
+    if @store_user.update(user_params)
       flash[:success] = "プロフィール更新された！"
       redirect_to @store_user
     else
@@ -36,6 +41,17 @@ class StoreUsersController < ApplicationController
     StoreUser.find(params[:id]).destroy
     flash[:success] = "ご利用ありがとうございました！"
     redirect_to root_path
+  end
+
+  def products
+    # @store_user = StoreUser.find(params[:id])
+    # @product = @store_user.products.build if logged_in?
+    # @feed_items = @store_user.feed.paginate(page: params[:page])
+
+    if logged_in?
+      @product  = current_user.products.build
+      @feed_items = current_user.feed.paginate(page: params[:page])
+    end
   end
 
   private

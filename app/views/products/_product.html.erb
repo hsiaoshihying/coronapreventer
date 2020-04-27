@@ -1,0 +1,18 @@
+<li id="product-<%= product.id %>">
+  <span class="name"><%= product.name %></span>
+  <span class="content">
+    値段：　<%= product.price %><br>
+    総数量：　<%= product.total_num %><br>
+    予約された数量：　<%= product.order_num %><br>
+    残り数量： <%= (product.total_num - product.order_num) %>
+  </span>
+  <span class="timestamp">
+    <%= time_ago_in_words(product.created_at) %>前
+    <% if current_user?(product.store_user) %>
+      <%= link_to "編集", edit_product_path(product.id)%>
+      <%= link_to "削除", product, method: :delete,
+                  data: { confirm: "この商品を削除しますか?" } %>
+    <% end %>
+  </span>
+</li>
+

@@ -1,0 +1,12 @@
+<%= form_for(@product) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <div class="field">
+    <%= f.label :商品%>
+    <%= f.select :name, {マスク: 'マスク', ハンドソープ: 'ハンドソープ', 殺菌グッズ: '殺菌グッズ'} %>
+    <%= f.label :値段 %>
+    <%= f.text_field :price %>
+    <%= f.label :総数量 %>
+    <%= f.text_field :total_num %>
+  </div>
+  <%= f.submit "追加", class: "btn btn-primary" %>
+<% end %>

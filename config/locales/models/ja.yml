@@ -3,6 +3,8 @@ ja:
     models:
       store_user: ストア
       customer_user: 消費者
+      product: 商品
+
     attributes:
       store_user:
         name: 店名
@@ -19,3 +21,8 @@ ja:
         password: パスワード
         password_confirmation: パスワード（確認用）
 
+      product:
+        name: 品名
+        price: 値段
+        total_num: 総数量
+        order_num: 予約された数量

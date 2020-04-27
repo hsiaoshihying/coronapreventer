@@ -1,0 +1,34 @@
+<% provide(:title, 'All stores') %>
+<h1>お店の一覧表</h1>
+
+<%= will_paginate %>
+<ol class="stores">
+  <% @store_users.each do |store_user| %>
+      <li class="store_info">
+        <ul class="content">
+        <li>
+          店名：　<%= store_user.name %><br>
+          連絡電話：　<%= store_user.phone %><br>
+          住所：　<%= store_user.address %><br>
+        </li>
+        <li>
+          <table  border="1">
+            <tr>
+              <th>品名</th><th>値段(円)</th><th>総数量</th><th>予約された数量</th><th>残り数量</th>
+            </tr>
+            <% store_user.products.each do |product| %>
+            <tr>
+              <td><%= product.name %></td>
+              <td><%= product.price %></td>
+              <td><%= product.total_num %></td>
+              <td><%= product.order_num %></td>
+              <td><%= (product.total_num - product.order_num) %></td>
+            </tr>
+            <% end %>
+          </table>
+        </li>
+        </ul>
+      </li>
+  <% end %>
+</ol>
+<%= will_paginate %>

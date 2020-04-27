@@ -1,4 +1,7 @@
 class StoreUser < ApplicationRecord
+  has_many :products, dependent: :destroy
+  belongs_to :customer_user
+
   attr_accessor :remember_token, :activation_token, :reset_token
   before_save { email.downcase! }
 
@@ -19,6 +22,10 @@ class StoreUser < ApplicationRecord
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
                BCrypt::Engine.cost
     BCrypt::Password.create(string, cost: cost)
+  end
+
+  def feed
+    Product.where("store_user_id = ?", id)
   end
 
 end

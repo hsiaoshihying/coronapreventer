@@ -1,4 +1,7 @@
 class CustomerUser < ApplicationRecord
+  has_many :store_users
+  has_many :products, through: :store_users
+
   before_save { email.downcase! }
 
   validates :name, presence: true, length: { maximum: 50 }

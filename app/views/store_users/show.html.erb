@@ -5,7 +5,8 @@
     <%= @store_user.name %><br>
     <%= @store_user.phone %><br>
     <%= @store_user.address %><br>
-    <%= link_to "プロフィール変更", edit_store_user_path(current_user), class: "btn btn-lg btn-primary" %>
+    <%= link_to "プロフィール変更", edit_store_user_path, class: "btn btn-lg btn-primary" %>
     <%= link_to "退会", store_user_path, method: :delete,
                 data: { confirm: "退会しますか？" }, class: "btn btn-lg btn-primary" %>
+    <%= link_to "商品一覧", products_store_user_path, class: "btn btn-lg btn-primary" %>
 </div>

@@ -5,6 +5,11 @@ module SessionsHelper
     session[:user] = user.class.name
   end
 
+  # 渡されたユーザーがログイン済みユーザーであればtrueを返す
+  def current_user?(user)
+    user == current_user
+  end
+
   # # 現在ログイン中のユーザーを返す (いる場合)
   def current_user
     if session[:user_id] && session[:user] == 'StoreUser'

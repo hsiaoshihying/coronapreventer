@@ -8,7 +8,15 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
   root 'static_pages#home'
+
   resources :customer_users
   resources :store_users
+  resources :store_users do
+    member do
+      get :products
+      post :products
+    end
+  end
+  resources :products, only: [:create, :edit, :update, :destroy]
   # resources :password_resets, only: [:new, :create, :edit, :update]
 end

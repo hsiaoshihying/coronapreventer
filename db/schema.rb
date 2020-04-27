@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_20_122801) do
+ActiveRecord::Schema.define(version: 2020_04_23_024110) do
 
   create_table "customer_users", force: :cascade do |t|
     t.string "name"
@@ -21,6 +21,18 @@ ActiveRecord::Schema.define(version: 2020_04_20_122801) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "reset_digest"
     t.datetime "reset_sent_at"
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.string "name"
+    t.integer "price"
+    t.integer "total_num"
+    t.integer "order_num", default: 0
+    t.integer "store_user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["store_user_id", "created_at"], name: "index_products_on_store_user_id_and_created_at"
+    t.index ["store_user_id"], name: "index_products_on_store_user_id"
   end
 
   create_table "store_users", force: :cascade do |t|
@@ -36,4 +48,5 @@ ActiveRecord::Schema.define(version: 2020_04_20_122801) do
     t.index ["email"], name: "index_store_users_on_email", unique: true
   end
 
+  add_foreign_key "products", "store_users"
 end
