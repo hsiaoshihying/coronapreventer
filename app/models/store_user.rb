@@ -1,6 +1,5 @@
 class StoreUser < ApplicationRecord
   has_many :products, dependent: :destroy
-  belongs_to :customer_user
 
   attr_accessor :remember_token, :activation_token, :reset_token
   before_save { email.downcase! }
