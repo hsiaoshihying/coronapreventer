@@ -1,5 +1,6 @@
 class Product < ApplicationRecord
   belongs_to :store_user
+  has_many :appointments
   default_scope -> { order(created_at: :desc) }
 
   validates :store_user_id, presence: true

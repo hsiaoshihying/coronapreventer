@@ -1,5 +1,5 @@
 class CustomerUser < ApplicationRecord
-  has_many :store_users
+  has_many :appointments, dependent: :destroy
 
   before_save { email.downcase! }
 

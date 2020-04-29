@@ -19,6 +19,9 @@
       <%= f.submit "ログイン", class: "btn btn-primary" %>
     <% end %>
 
-    <p>まだ登録してないですか? <%= link_to "新規登録の方こちら!",store_signup_path %></p>
+    <p>
+      まだ登録してないですか? <%= link_to "ストアはこちら!",store_signup_path %>
+                          <%= link_to "消費者はこちら!",customer_signup_path %>
+    </p>
   </div>
 </div>

@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  customer_user: michael
+  store_user: drugstore
+  product: one
+
+two:
+  customer_user: michael
+  store_user: drugstore
+  product: two

@@ -18,5 +18,5 @@ Rails.application.routes.draw do
     end
   end
   resources :products, only: [:create, :edit, :update, :destroy]
-  # resources :password_resets, only: [:new, :create, :edit, :update]
+  resources :appointments, only: [:create, :destroy]
 end
