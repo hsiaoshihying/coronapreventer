@@ -7,8 +7,8 @@ class CreateAppointments < ActiveRecord::Migration[6.0]
 
       t.timestamps
     end
-    add_index :customer_users, [:customer_user_id, :created_at]
-    add_index :store_users, [:store_user_id]
-    add_index :products, [:product_id]
+    add_index :appointments, [:customer_user_id, :created_at]
+    add_index :appointments, [:store_user_id]
+    add_index :appointments, [:product_id]
   end
 end
