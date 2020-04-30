@@ -33,11 +33,11 @@ class CustomerUsersController < ApplicationController
     end
   end
 
-  def destroy
-    CustomerUser.find(params[:id]).destroy
-    flash[:success] = "ご利用ありがとうございました！"
-    redirect_to root_path
-  end
+  # def destroy
+  #   CustomerUser.find(params[:id]).destroy
+  #   flash[:success] = "ご利用ありがとうございました！"
+  #   redirect_to root_path
+  # end
 
   private
 
