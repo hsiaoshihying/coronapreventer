@@ -4,6 +4,7 @@ class ProductsController < ApplicationController
   def create
     @product = current_user.products.build(product_params)
     if @product.save
+      UserMailer.send_to_all_customer_users(@product).deliver_now
       flash[:success] = "商品が追加された!"
       redirect_to products_store_user_path(current_user)
     else

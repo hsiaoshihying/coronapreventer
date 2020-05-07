@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
+  post '/appointments?product_id=:product_id&store_user_id=:store_user_id&product_name=:product_name',
+       to: 'appointments#create', as: :create_appointment
   root 'static_pages#home'
 
   resources :customer_users

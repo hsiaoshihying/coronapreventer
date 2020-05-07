@@ -6,5 +6,6 @@ class Appointment < ApplicationRecord
   validates :customer_user_id, presence: true
   validates :store_user_id, presence: true
   validates :product_id, presence: true
+  validates :product_name, presence: true
 
 end

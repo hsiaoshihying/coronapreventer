@@ -29,4 +29,13 @@ module SessionsHelper
     session.delete(:user_id)
     @current_user = nil
   end
+
+  def include_all?(array, array_compare)
+    array_compare.each do |value|
+        unless array.include?(value)
+          return false
+        end
+    end
+    return true
+  end
 end

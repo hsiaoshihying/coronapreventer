@@ -1,0 +1,13 @@
+<h1>コロナ対策グッズの事前予約システム</h1>
+
+<p><%= @user.name %> 様</p>
+
+<p>
+  新商品が入荷されました！！！ご確認してください</br>
+  店名：　<%= @product.store_user.name %></br>
+  品名：　<%= @product.name %></br>
+  値段：　<%= @product.price %>円</br>
+  数量：　<%= @product.total_num %></br>
+</p>
+
+<%= link_to "新商品を確認します", store_users_url(email: @user.email) %>

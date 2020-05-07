@@ -1,11 +1,59 @@
 <% provide(:title, "MyPage") %>
 <h1>マイページ</h1>
 
+<% from = time_from_ago %>
+<% now = time_now %>
+<% appointments = get_appointments(@customer_user, from, now) %>
+
 <div class="row">
-  <%= @customer_user.name %><br>
-  <%= @customer_user.phone %><br>
+  <div class="col-sm-6">
+  <h4><%= @customer_user.name %></h4><br>
+  <h4><%= @customer_user.phone %></h4><br>
   <%= link_to "プロフィール変更", edit_customer_user_path, class: "btn btn-lg btn-primary" %>
   <%= link_to "退会", customer_user_path, method: :delete,
               data: { confirm: "退会しますか？" }, class: "btn btn-lg btn-primary" %>
   <%= link_to "お店一覧", store_users_path, class: "btn btn-lg btn-primary" %>
+  </div>
+  <div class="col-sm-6">
+    <div class="panel panel-success">
+      <div class="panel-heading"><h3 class="panel-title">予約記録</h3></div>
+      <div class="panel-body">
+        <ul class="list-group">
+          <% appointments.each do |appointment| %>
+            <li class="list-group-item">
+              <dl>
+                <dt><%= appointment.created_at.strftime('%Y/%m/%d %H:%M:%S') %></dt>
+                <dd>- <%= appointment.product_name %></dd>
+                <dd>- <%= appointment.product.price %>円</dd>
+                <dt><%= appointment.store_user.name %></dt>
+                <dd>- <%= appointment.store_user.phone %></dd>
+                <dd>- <%= appointment.store_user.address %></dd>
+                <dd class="text-right"><%= link_to "キャンセル", appointment, method: :delete,
+                                                   data: { confirm: "この予約を削除しますか?" } %></dd>
+              </dl>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+    <div class="panel panel-warning">
+      <div class="panel-heading"><h3 class="panel-title">入荷通知</h3></div>
+      <div class="panel-body">
+        <%= will_paginate @products, :previous_label => ' &lt 前へ', :next_label => '次へ &gt'%>
+        <ul class="list-group">
+          <% @products.each do |product| %>
+            <li class="list-group-item">
+              <dl>
+                <dt><%= product.created_at.strftime('%Y/%m/%d') %></dt>
+                <dd>- <%= product.name %></dd>
+                <dd>- <%= product.store_user.name %></dd>
+                <dd>- <%= product.store_user.phone %></dd>
+                <dd>- <%= product.store_user.address %></dd>
+              </dl>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
 </div>

@@ -1,7 +1,7 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: mask
+  name: マスク
   price: 500
   total_num: 100
   order_num: 0
@@ -9,7 +9,7 @@ one:
   store_user: drugstore
 
 two:
-  name: handsoap
+  name: ハンドソープ
   price: 700
   total_num: 200
   order_num: 1
@@ -17,7 +17,7 @@ two:
   store_user: drugstore
 
 most_recent:
-  name: sanitizer
+  name: 殺菌グッズ
   price: 1000
   total_num: 50
   order_num: 0

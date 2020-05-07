@@ -2,6 +2,9 @@ class CustomerUsersController < ApplicationController
 
   def show
     @customer_user = CustomerUser.find(params[:id])
+    from = 12.days.ago.change(sec: 0)
+    to = Time.zone.now.change(sec: 59)
+    @products = Product.where(created_at: from..to).paginate(page: params[:page], per_page: 5)
   end
 
   def new

@@ -44,10 +44,6 @@ class StoreUsersController < ApplicationController
   end
 
   def products
-    # @store_user = StoreUser.find(params[:id])
-    # @product = @store_user.products.build if logged_in?
-    # @feed_items = @store_user.feed.paginate(page: params[:page])
-
     if logged_in?
       @product  = current_user.products.build
       @feed_items = current_user.feed.paginate(page: params[:page])

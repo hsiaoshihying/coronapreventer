@@ -1,18 +1,45 @@
-<li id="product-<%= product.id %>">
-  <span class="name"><%= product.name %></span>
-  <span class="content">
-    値段：　<%= product.price %><br>
-    総数量：　<%= product.total_num %><br>
-    予約された数量：　<%= product.order_num %><br>
-    残り数量： <%= (product.total_num - product.order_num) %>
-  </span>
-  <span class="timestamp">
-    <%= time_ago_in_words(product.created_at) %>前
-    <% if current_user?(product.store_user) %>
-      <%#= link_to "編集", edit_product_path(product.id)%>
-      <%= link_to "削除", product, method: :delete,
-                  data: { confirm: "この商品を削除しますか?" } %>
-    <% end %>
-  </span>
-</li>
+<ul class="list-group  list-group-flush">
+  <li class="list-group-item", id="product-<%= product.id %>">
+    <div class="row">
+      <div class="col-md-3">
+      <dl>
+        <dt><%= product.name %></dt>
+        <dd>値段：　<%= product.price %>円</dd>
+        <dd>総数量：　<%= product.total_num %></dd>
+        <dd>予約された数量：　<%= product.order_num %></dd>
+        <dd>残り数量： <%= (product.total_num - product.order_num) %></dd>
+        <dd><%= time_ago_in_words(product.created_at) %>前</dd>
+        <% if current_user?(product.store_user) %>
+          <dd><%= link_to "削除", product, method: :delete,
+                          data: { confirm: "この商品を削除しますか?" } %></dd>
+        <% end %>
+      </dl>
+      </div>
+      <div class="col-md-9">
+        <% if product.appointments.any? %>
+          <table class="table">
+            <thead>
+            <tr>
+              <th>お客さん</th>
+              <th>連絡電話</th>
+              <th>メールアドレス</th>
+            </tr>
+            </thead>
+            <tbody>
+            <% appointments = product.appointments %>
+            <% appointments.each do |appointment| %>
+            <tr>
+              <td><%= appointment.customer_user.name%></td>
+              <td><%= appointment.customer_user.phone%></td>
+              <td><%= appointment.customer_user.email%></td>
+            </tr>
+            </tbody>
+          </table>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </li>
+</ul>
+
 

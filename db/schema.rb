@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_29_035848) do
+ActiveRecord::Schema.define(version: 2020_05_01_024602) do
 
   create_table "appointments", force: :cascade do |t|
     t.integer "customer_user_id"
@@ -18,8 +18,8 @@ ActiveRecord::Schema.define(version: 2020_04_29_035848) do
     t.integer "product_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "product_name"
     t.index ["customer_user_id"], name: "index_appointments_on_customer_user_id"
-    t.index ["customer_user_id", "created_at"], name: "index_appointments_on_customer_user_id_and_created_at"
     t.index ["product_id"], name: "index_appointments_on_product_id"
     t.index ["store_user_id"], name: "index_appointments_on_store_user_id"
   end
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 2020_04_29_035848) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "reset_digest"
     t.datetime "reset_sent_at"
+    t.index "\"customer_user_id\", \"created_at\"", name: "index_customer_users_on_customer_user_id_and_created_at"
   end
 
   create_table "products", force: :cascade do |t|
@@ -43,6 +44,7 @@ ActiveRecord::Schema.define(version: 2020_04_29_035848) do
     t.integer "store_user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index "\"product_id\"", name: "index_products_on_product_id"
     t.index ["store_user_id", "created_at"], name: "index_products_on_store_user_id_and_created_at"
     t.index ["store_user_id"], name: "index_products_on_store_user_id"
   end
@@ -57,6 +59,7 @@ ActiveRecord::Schema.define(version: 2020_04_29_035848) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "reset_digest"
     t.datetime "reset_sent_at"
+    t.index "\"store_user_id\"", name: "index_store_users_on_store_user_id"
     t.index ["email"], name: "index_store_users_on_email", unique: true
   end
 

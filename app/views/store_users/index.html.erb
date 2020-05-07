@@ -1,6 +1,13 @@
 <% provide(:title, 'All stores') %>
 <h1>お店の一覧表</h1>
 
+<% from = time_from_ago %>
+<% now = time_now %>
+<% appointments = get_appointments(current_user, from, now) %>
+
+<% appointment_id_array = appointments.map {|appointment| appointment[:product_id] } %>
+<% appointment_name_array = appointments.map {|appointment| appointment[:product_name] } %>
+<% unless include_all?(appointment_name_array, ['マスク', 'ハンドソープ', '殺菌グッズ']) %>
 <%= will_paginate %>
 <ol class="stores">
     <% @store_users.each do |store_user| %>
@@ -23,10 +30,15 @@
               <td><%= product.total_num %></td>
               <td><%= product.order_num %></td>
               <td><%= (product.total_num - product.order_num) %></td>
-              <td><%= link_to "予約", appointments_path, store_user_id: store_user.id,
-                                                        product_id: product.id,
-                                                        method: :post%>
-              </td>
+              <% unless appointment_id_array.include?(product.id) || appointment_name_array.include?(product.name) %>
+                <td><%= link_to "予約", create_appointment_path(store_user_id: store_user.id,
+                                                          product_id: product.id,
+                                                          product_name: product.name),
+                                                          method: :post %>
+                </td >
+              <% else %>
+                <td>  </td>
+              <% end %>
             </tr>
             <% end %>
           </table>
@@ -36,3 +48,6 @@
     <% end %>
 </ol>
 <%= will_paginate %>
+<% else %>
+  <h3>Finish!</h3>
+<% end %>
