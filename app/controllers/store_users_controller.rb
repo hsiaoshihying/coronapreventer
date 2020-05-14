@@ -1,12 +1,17 @@
 class StoreUsersController < ApplicationController
+  extend AppointmentsHelper
+  APPOINTMENTS_FROM = time_from_ago
+  APPOINTMENTS_TO = time_now
+
   def index
     @store_users = StoreUser.paginate(page: params[:page], per_page: 10)
+    @appointments = current_user.appointments.where(created_at: APPOINTMENTS_FROM..APPOINTMENTS_TO)
   end
 
   def show
     @store_user = StoreUser.find(params[:id])
+    @inquiries = @store_user.inquiries.paginate(page: params[:page], per_page: 5)
   end
-
 
   def new
     @store_user = StoreUser.new

@@ -1,10 +1,15 @@
 class CustomerUsersController < ApplicationController
+  extend AppointmentsHelper
+  APPOINTMENTS_FROM = time_from_ago
+  APPOINTMENTS_TO = time_now
 
   def show
     @customer_user = CustomerUser.find(params[:id])
-    from = 12.days.ago.change(sec: 0)
-    to = Time.zone.now.change(sec: 59)
-    @products = Product.where(created_at: from..to).paginate(page: params[:page], per_page: 5)
+    new_products_from = 15.days.ago.change(hour: 0, min: 0, sec: 0)
+    new_products_to = Time.zone.now.change(hour: 23, min: 59, sec: 59)
+    @products = Product.where(created_at: new_products_from..new_products_to).paginate(page: params[:page], per_page: 5)
+    @appointments = @customer_user.appointments.where(created_at: APPOINTMENTS_FROM..APPOINTMENTS_TO)
+
   end
 
   def new

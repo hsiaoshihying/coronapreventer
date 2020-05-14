@@ -1,10 +1,10 @@
 module AppointmentsHelper
   def time_from_ago
-    time_from_ago = 20.minutes.ago.change(sec: 0)
+    time_from_ago = Time.current.beginning_of_month
   end
 
   def time_now
-    time_now = Time.zone.now.change(sec: 59)
+    time_now = Time.current.end_of_month
   end
 
   def get_appointments(user, from, now)

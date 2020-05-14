@@ -232,3 +232,13 @@ span.picture {
     }
   }
 }
+
+.table {
+  table-layout: fixed;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+.table tr th:nth-child(1) {
+  width: 30%;
+}

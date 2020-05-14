@@ -1,13 +1,19 @@
 <% provide(:title, 'All stores') %>
-<h1>お店の一覧表</h1>
-
-<% from = time_from_ago %>
-<% now = time_now %>
-<% appointments = get_appointments(current_user, from, now) %>
-
-<% appointment_id_array = appointments.map {|appointment| appointment[:product_id] } %>
-<% appointment_name_array = appointments.map {|appointment| appointment[:product_name] } %>
+<% appointment_id_array = @appointments.map {|appointment| appointment[:product_id] } %>
+<% appointment_name_array = @appointments.map {|appointment| appointment[:product_name] } %>
 <% unless include_all?(appointment_name_array, ['マスク', 'ハンドソープ', '殺菌グッズ']) %>
+  <div class="alert alert-info alert-dismissible">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <strong>通知！</strong>1ヶ月の中で、各種類の商品を一つしか予約できません
+  </div>
+<% else %>
+  <div class="alert alert-warning alert-dismissible">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <strong>通知！</strong>今月の予約額は上限に達しました！
+  </div>
+<% end %>
+
+<h1>お店の一覧表</h1>
 <%= will_paginate %>
 <ol class="stores">
     <% @store_users.each do |store_user| %>
@@ -21,7 +27,8 @@
         <li>
           <table  border="1">
             <tr>
-              <th>品名</th><th>値段(円)</th><th>総数量</th><th>予約された数量</th><th>残り数量</th><th> </th>
+              <th>品名</th><th>値段(円)</th><th>総数量</th><th>予約された数量</th>
+              <th>残り数量</th><th>予約</th><th>問い合わせ</th>
             </tr>
             <% store_user.products.each do |product| %>
             <tr>
@@ -31,14 +38,16 @@
               <td><%= product.order_num %></td>
               <td><%= (product.total_num - product.order_num) %></td>
               <% unless appointment_id_array.include?(product.id) || appointment_name_array.include?(product.name) %>
-                <td><%= link_to "予約", create_appointment_path(store_user_id: store_user.id,
+                <td><%= link_to "予約", appointments_path(store_user_id: store_user.id,
                                                           product_id: product.id,
                                                           product_name: product.name),
                                                           method: :post %>
                 </td >
               <% else %>
-                <td>  </td>
+                <td>X</td>
               <% end %>
+              <td><%= link_to "QA", new_inquiry_path(store_user_id: store_user.id,
+                                                    product_id: product.id)%></td>
             </tr>
             <% end %>
           </table>
@@ -48,6 +57,3 @@
     <% end %>
 </ol>
 <%= will_paginate %>
-<% else %>
-  <h3>Finish!</h3>
-<% end %>

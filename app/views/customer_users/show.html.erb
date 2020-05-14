@@ -1,25 +1,22 @@
 <% provide(:title, "MyPage") %>
 <h1>マイページ</h1>
 
-<% from = time_from_ago %>
-<% now = time_now %>
-<% appointments = get_appointments(@customer_user, from, now) %>
-
 <div class="row">
   <div class="col-sm-6">
   <h4><%= @customer_user.name %></h4><br>
   <h4><%= @customer_user.phone %></h4><br>
   <%= link_to "プロフィール変更", edit_customer_user_path, class: "btn btn-lg btn-primary" %>
-  <%= link_to "退会", customer_user_path, method: :delete,
-              data: { confirm: "退会しますか？" }, class: "btn btn-lg btn-primary" %>
   <%= link_to "お店一覧", store_users_path, class: "btn btn-lg btn-primary" %>
+  <%= link_to "問い合わせ記録", inquiries_path, class: "btn btn-lg btn-primary" %>
+  <%= link_to "退会", customer_user_path, method: :delete,
+                data: { confirm: "退会しますか？" }, class: "btn btn-lg btn-primary" %>
   </div>
   <div class="col-sm-6">
     <div class="panel panel-success">
       <div class="panel-heading"><h3 class="panel-title">予約記録</h3></div>
       <div class="panel-body">
         <ul class="list-group">
-          <% appointments.each do |appointment| %>
+          <% @appointments.each do |appointment| %>
             <li class="list-group-item">
               <dl>
                 <dt><%= appointment.created_at.strftime('%Y/%m/%d %H:%M:%S') %></dt>

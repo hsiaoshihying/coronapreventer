@@ -26,3 +26,7 @@ ja:
         price: 値段
         total_num: 総数量
         order_num: 予約された数量
+
+      inquiry:
+        content: 質問
+        reply: 返信の内容

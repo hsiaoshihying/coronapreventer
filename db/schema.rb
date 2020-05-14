@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_01_024602) do
+ActiveRecord::Schema.define(version: 2020_05_12_073445) do
 
   create_table "appointments", force: :cascade do |t|
     t.integer "customer_user_id"
@@ -34,6 +34,19 @@ ActiveRecord::Schema.define(version: 2020_05_01_024602) do
     t.string "reset_digest"
     t.datetime "reset_sent_at"
     t.index "\"customer_user_id\", \"created_at\"", name: "index_customer_users_on_customer_user_id_and_created_at"
+  end
+
+  create_table "inquiries", force: :cascade do |t|
+    t.text "content"
+    t.text "reply", default: "None"
+    t.integer "customer_user_id"
+    t.integer "store_user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "product_id"
+    t.index ["customer_user_id"], name: "index_inquiries_on_customer_user_id"
+    t.index ["product_id"], name: "index_inquiries_on_product_id"
+    t.index ["store_user_id"], name: "index_inquiries_on_store_user_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -66,5 +79,8 @@ ActiveRecord::Schema.define(version: 2020_05_01_024602) do
   add_foreign_key "appointments", "customer_users"
   add_foreign_key "appointments", "products"
   add_foreign_key "appointments", "store_users"
+  add_foreign_key "inquiries", "customer_users"
+  add_foreign_key "inquiries", "products"
+  add_foreign_key "inquiries", "store_users"
   add_foreign_key "products", "store_users"
 end

@@ -1,6 +1,7 @@
 class Product < ApplicationRecord
   belongs_to :store_user
-  has_many :appointments
+  has_many :appointments, dependent: :destroy
+  has_many :inquiries, dependent: :destroy
   default_scope -> { order(created_at: :desc) }
 
   validates :store_user_id, presence: true

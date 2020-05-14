@@ -7,8 +7,8 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
-  post '/appointments?product_id=:product_id&store_user_id=:store_user_id&product_name=:product_name',
-       to: 'appointments#create', as: :create_appointment
+  get '/inquiry_replies/:id', to: 'inquiries#edit', as: :reply_inquiry
+  patch '/inquiry_replies/:id', to: 'inquiries#update', as: :reply_update_inquiry
   root 'static_pages#home'
 
   resources :customer_users
@@ -21,4 +21,5 @@ Rails.application.routes.draw do
   end
   resources :products, only: [:create, :edit, :update, :destroy]
   resources :appointments, only: [:create, :destroy]
+  resources :inquiries, only: [:index, :new, :create]
 end

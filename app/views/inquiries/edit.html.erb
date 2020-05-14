@@ -1,0 +1,22 @@
+<% provide(:title, 'Edit Inquiry') %>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@inquiry, url: reply_update_inquiry_path(@inquiry)) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+      <%= f.hidden_field :store_user_id %>
+      <%= f.hidden_field :product_id %>
+      <% if @current_user.class.name == "StoreUser" %>
+        <%= f.label :回答%>
+        <%= f.text_area :reply, placeholder: "回答を入力してください..." %>
+      <% elsif @current_user.class.name == "CustomerUser" %>
+        <%= f.label :返信%>
+        <%= f.text_area :content, placeholder: "内容を入力してください..." %>
+      <% end %>
+      <%= f.submit "送信", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+  <div class="col-md-1 col-md-offset-10">
+    <%= link_to "前ページ", :back, class: "btn btn-default btn-outline-secondary"  %>
+  </div>
+</div>

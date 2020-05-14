@@ -3,7 +3,7 @@ require 'test_helper'
 class AppointmentTest < ActiveSupport::TestCase
   def setup
     @customer = customer_users(:michael)
-    @product = products(:one)
+    @product = products(:mask)
     @store = @product.store_user
     @appointment = @customer.appointments.build(store_user_id: @store.id,
                                                 product_id: @product.id,

@@ -1,0 +1,44 @@
+<% provide(:title, 'All Inquiries') %>
+<h1>問い合わせの記録</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <div class="panel panel-success">
+      <div class="panel-heading"><h3 class="panel-title">予約記録</h3></div>
+      <div class="panel-body">
+        <%= will_paginate @inquiries, :previous_label => ' &lt 前へ', :next_label => '次へ &gt'%>
+        <ul class="list-group">
+          <% @inquiries.each do |inquiry| %>
+            <li class="list-group-item">
+            <dl>
+              <dt><%= inquiry.created_at.strftime('%Y/%m/%d') %></dt>
+              <dd>- <%= inquiry.store_user.name %></dd>
+              <dd>- <%= inquiry.product.name %></dd>
+            </dl>
+              <table class="table">
+                <thead>
+                <tr><th>回答</th></tr>
+                </thead>
+                <tbody>
+                <tr><td><%= inquiry.reply %></td></tr>
+                </tbody>
+              </table>
+              <table class="table">
+                <thead>
+                <tr><th>質問</th></tr>
+                </thead>
+                <tbody>
+                <tr><td><%= inquiry.content %></td></tr>
+                </tbody>
+              </table>
+              <%= link_to "回答を返信する",  reply_inquiry_path(inquiry), method: :get  %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+    <div class="class=col-md-2 col-md-offset-12">
+      <%= link_to "マイページに戻る", customer_user_path(@current_user), class: "btn btn-default btn-outline-secondary"  %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+<% provide(:title, 'Inquiry form') %>
+<h1>問い合わせのフォーム</h1>
+
+<div class="row">
+  <div class="col-md-2 col-md-offset-5">
+    <h4><%= @store_user.name %></h4>
+    <h4><%= @product.name %></h4>
+  </div>
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@inquiry, url: inquiries_path(store_user_id: params[:store_user_id],
+                                               product_id: params[:product_id])) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+      <%= f.hidden_field :store_user_id, :value => params[:store_user_id] %>
+      <%= f.hidden_field :product_id, :value => params[:product_id] %>
+      <%= f.label :質問%>
+      <%= f.text_area :content, placeholder: "質問を入力してください..." %>
+      <%= f.submit "送信", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+  <div class="col-md-1 col-md-offset-10">
+    <%= link_to "前ページ", :back, class: "btn btn-default btn-outline-secondary"  %>
+  </div>
+</div>

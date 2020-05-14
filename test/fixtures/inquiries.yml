@@ -1,23 +1,23 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
+question_one:
+  content: MyText
+  reply: MyText
   customer_user: michael
   store_user: drugstore
   product: mask
-  product_name: マスク
-  created_at: <%= 5.minutes.ago %>
 
-two:
+question_two:
+  content: MyText
+  reply: MyText
   customer_user: michael
   store_user: drugstore
   product: handsoap
-  product_name: ハンドソープ
-  created_at: <%= 10.minutes.ago %>
 
-three:
+question_three:
+  content: MyText
+  reply: MyText
   customer_user: michael
   store_user: drugstore
   product: sanitizer
-  product_name: 殺菌グッズ
-  created_at: <%= 15.minutes.ago %>
 

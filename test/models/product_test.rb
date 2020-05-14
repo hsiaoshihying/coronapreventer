@@ -3,7 +3,7 @@ require 'test_helper'
 class ProductTest < ActiveSupport::TestCase
   def setup
     @store_user = store_users(:drugstore)
-    @product = @store_user.products.build(name: "mask", price: 500,
+    @product = @store_user.products.build(name: "マスク", price: 500,
                            total_num: 100, order_num: 0,
                            store_user_id: @store_user.id)
   end
@@ -77,6 +77,6 @@ class ProductTest < ActiveSupport::TestCase
   end
 
   test "order should be most recent first" do
-    assert_equal products(:most_recent), Product.first
+    assert_equal products(:sanitizer), Product.first
   end
 end

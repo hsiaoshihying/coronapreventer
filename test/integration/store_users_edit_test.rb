@@ -22,7 +22,7 @@ class StoreUsersEditTest < ActionDispatch::IntegrationTest
     assert_template 'store_users/edit'
     name  = "Foo Bar"
     phone = "08012345678"
-    address = "123-4567東京都港区芝浦三丁目1番21号"
+    address = "108-0014東京都港区芝浦三丁目1番21号"
     patch store_user_path(@store_user), params: { store_user: { name:  name,
                                                                 phone: phone,
 

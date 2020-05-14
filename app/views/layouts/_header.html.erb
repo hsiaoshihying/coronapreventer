@@ -1,6 +1,10 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="container">
-    <%= link_to "Coronapreventer", root_path, id: "logo" %>
+    <% if logged_in? %>
+      <%= link_to "Coronapreventer", current_user, id: "logo" %>
+    <% else %>
+      <%= link_to "Coronapreventer", root_path, id: "logo" %>
+    <% end %>
     <nav>
       <ul class="nav navbar-nav navbar-right">
         <% if logged_in? %>

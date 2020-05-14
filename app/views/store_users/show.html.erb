@@ -2,11 +2,49 @@
 <h1>マイページ</h1>
 
 <div class="row">
-    <%= @store_user.name %><br>
-    <%= @store_user.phone %><br>
-    <%= @store_user.address %><br>
+  <div class="col-sm-6">
+    <h4><%= @store_user.name %></h4>
+    <h4><%= @store_user.phone %></h4>
+    <h4><%= @store_user.address %></h4>
     <%= link_to "プロフィール変更", edit_store_user_path, class: "btn btn-lg btn-primary" %>
+    <%= link_to "商品一覧", products_store_user_path, class: "btn btn-lg btn-primary" %>
     <%= link_to "退会", store_user_path, method: :delete,
                 data: { confirm: "退会しますか？" }, class: "btn btn-lg btn-primary" %>
-    <%= link_to "商品一覧", products_store_user_path, class: "btn btn-lg btn-primary" %>
+  </div>
+  <div class="col-sm-6">
+    <div class="panel panel-success">
+      <div class="panel-heading"><h3 class="panel-title">問い合わせの記録</h3></div>
+      <div class="panel-body">
+        <%= will_paginate @inquiries, :previous_label => ' &lt 前へ', :next_label => '次へ &gt'%>
+        <ul class="list-group">
+          <% @inquiries.each do |inquiry| %>
+            <li class="list-group-item">
+              <dl>
+                <dt><%= inquiry.created_at.strftime('%Y/%m/%d') %></dt>
+                <dd>- <%= inquiry.customer_user.name %></dd>
+                <dd>- <%= inquiry.product.name %></dd>
+              </dl>
+              <table class="table">
+                <thead>
+                <tr><th>質問</th></tr>
+                </thead>
+                <tbody>
+                <tr><td><%= inquiry.content %></td></tr>
+                </tbody>
+              </table>
+              <table class="table">
+                <thead>
+                <tr><th>回答</th></tr>
+                </thead>
+                <tbody>
+                <tr><td><%= inquiry.reply %></td></tr>
+                </tbody>
+              </table>
+              <%= link_to "回答",  reply_inquiry_path(inquiry), method: :get  %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
 </div>

@@ -77,4 +77,5 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     assert_select "a[href=?]", logout_path,      count: 0
     assert_select "a[href=?]", customer_user_path(@customer_user), count: 0
   end
+
 end

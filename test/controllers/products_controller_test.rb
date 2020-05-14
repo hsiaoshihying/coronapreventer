@@ -3,7 +3,7 @@ require 'test_helper'
 class ProductsControllerTest < ActionDispatch::IntegrationTest
   def setup
     @store_user = store_users(:drugstore)
-    @product = products(:one)
+    @product = products(:mask)
   end
 
   test "create product with valid information" do
@@ -11,6 +11,7 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
     assert_difference '@store_user.products.count' do
       post products_path, params: { product:{ name:  'マスク', price: 100, total_num: 50 }}
     end
+
     assert_not flash.empty?
     assert_redirected_to products_store_user_path(@store_user)
   end

@@ -13,8 +13,10 @@
       <%= f.phone_field :phone, class: 'form-control' %>
 
       <%= f.submit "更新", class: "btn btn-default btn-primary" %>
-      <%= link_to "キャンセル", customer_user_path(@customer_user), class: "btn btn-default btn-primary" %>
     <% end %>
 
+  </div>
+  <div class="col-md-1 col-md-offset-10">
+    <%= link_to "前ページ", :back, class: "btn btn-default btn-outline-secondary"  %>
   </div>
 </div>
