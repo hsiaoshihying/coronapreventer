@@ -1,7 +1,4 @@
 class AppointmentsController < ApplicationController
-  def index
-
-  end
 
   def create
     store_user_id = params[:store_user_id]
