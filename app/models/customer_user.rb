@@ -15,6 +15,9 @@ class CustomerUser < ApplicationRecord
             uniqueness: { case_sensitive: false }
   validates :password, presence: true, length: { minimum: 6 } , allow_nil: true
   has_secure_password
+  validates :mynumber, presence: true, mynumber: true
+  validates :address, presence: true, address: true
+
 
   # 渡された文字列のハッシュ値を返す
   def CustomerUser.digest(string)

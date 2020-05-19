@@ -3,7 +3,8 @@ require 'test_helper'
 class CustomerUserTest < ActiveSupport::TestCase
   def setup
     @customer_user = CustomerUser.new(name: "Example Customer", phone: "07012345678", email: "user@example.com",
-                                password: "foobar", password_confirmation: "foobar")
+                                password: "foobar", password_confirmation: "foobar",
+                                address: "108-0014東京都港区芝浦三丁目1番21号", mynumber: "123456789012")
   end
 
   test "should be valid" do
@@ -27,6 +28,16 @@ class CustomerUserTest < ActiveSupport::TestCase
 
   test "password should be present" do
     @customer_user.password = @customer_user.password_confirmation = " "*6
+    assert_not @customer_user.valid?
+  end
+
+  test "address should be present" do
+    @customer_user.address = " "
+    assert_not @customer_user.valid?
+  end
+
+  test "mynumber should be present" do
+    @customer_user.mynumber = " "
     assert_not @customer_user.valid?
   end
 
@@ -74,5 +85,21 @@ class CustomerUserTest < ActiveSupport::TestCase
     @customer_user.email = mixed_case_email
     @customer_user.save
     assert_equal mixed_case_email.downcase, @customer_user.reload.email
+  end
+
+  test "address validation should reject invalid address" do
+    invalid_addresses = %w(東京都港区芝浦三丁目1番21号 東京都 港区 108-0014東京都港区 108-000東京都港区芝浦三丁目1番21号)
+    invalid_addresses.each do |invalid_address|
+      @customer_user.address = invalid_address
+      assert_not @customer_user.valid?
+    end
+  end
+
+  test "mynumber validation should reject invalid input" do
+    invalid_mynumbers = %w(0123456789123 01234567891 0123.4566 abcdefg)
+    invalid_mynumbers.each do |invalid_mynumber|
+      @customer_user.mynumber = invalid_mynumber
+      assert_not @customer_user.valid?
+    end
   end
 end

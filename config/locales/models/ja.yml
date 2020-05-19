@@ -18,6 +18,8 @@ ja:
         name: 名前
         phone: 携帯電話・固定電話
         email: メールアドレス
+        address: 住所
+        mynumber: マイナンバー
         password: パスワード
         password_confirmation: パスワード（確認用）
 

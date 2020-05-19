@@ -32,20 +32,35 @@ store_users = StoreUser.all
 end
 
 
-customer_user = CustomerUser.create!(name:  "Example Customer",
+50.times do |n|
+  mynumber = 12.times.map{rand(0...10)}.join
+  name  = Faker::Name.name
+  address = "108-0014東京都港区芝浦三丁目1番21号"
+  PersonalInfo.create!(mynumber: mynumber,
+                       name:  name,
+                       address: address)
+end
+
+customer_user = CustomerUser.create!(name:  PersonalInfo.first.name,
                                phone: "07012345678",
                                email: "customer@railstutorial.org",
+                               address: "108-0014東京都港区芝浦三丁目1番21号",
+                               mynumber: PersonalInfo.first.mynumber,
                                password:              "foobar",
                                password_confirmation: "foobar")
 
-49.times do |n|
-  name  = Faker::Name.name
+28.times do |n|
+  name  = PersonalInfo.find(n+2).name
   phone = '07012345678'
   email = "example-#{n+1}@railstutorial.org"
+  address = "108-0014東京都港区芝浦三丁目1番21号"
+  mynumber = PersonalInfo.find(n+2).mynumber
   password = "password"
   CustomerUser.create!(name:  name,
                     phone: phone,
                     email: email,
+                    address: address,
+                    mynumber: mynumber,
                     password:              password,
                     password_confirmation: password)
 end
