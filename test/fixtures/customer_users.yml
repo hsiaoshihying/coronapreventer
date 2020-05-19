@@ -1,5 +1,7 @@
 michael:
-  name: Michael
+  name: 森田 颯太
   phone: 08012345678
   email: michael@example.com
+  address: 108-0014東京都港区芝浦三丁目1番21号
+  mynumber: 430074255587
   password_digest: <%= CustomerUser.digest('password') %>

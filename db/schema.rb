@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_12_073445) do
+ActiveRecord::Schema.define(version: 2020_05_18_035934) do
 
   create_table "appointments", force: :cascade do |t|
     t.integer "customer_user_id"
@@ -33,6 +33,8 @@ ActiveRecord::Schema.define(version: 2020_05_12_073445) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "reset_digest"
     t.datetime "reset_sent_at"
+    t.string "mynumber"
+    t.string "address"
     t.index "\"customer_user_id\", \"created_at\"", name: "index_customer_users_on_customer_user_id_and_created_at"
   end
 
@@ -47,6 +49,14 @@ ActiveRecord::Schema.define(version: 2020_05_12_073445) do
     t.index ["customer_user_id"], name: "index_inquiries_on_customer_user_id"
     t.index ["product_id"], name: "index_inquiries_on_product_id"
     t.index ["store_user_id"], name: "index_inquiries_on_store_user_id"
+  end
+
+  create_table "personal_infos", force: :cascade do |t|
+    t.string "mynumber"
+    t.string "name"
+    t.string "address"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "products", force: :cascade do |t|
