@@ -242,3 +242,49 @@ span.picture {
 .table tr th:nth-child(1) {
   width: 30%;
 }
+
+
+/* error message of log in page */
+#login {
+
+input[type=email]{
+  -webkit-appearance: none;
+  appearance: none;
+
+  width: 100%;
+  border: 1px solid #333;
+  margin: 0;
+
+  font-family: inherit;
+  font-size: 90%;
+
+  box-sizing: border-box;
+}
+
+/* これは不正なフィールド向けのスタイルです */
+input:invalid{
+  border-color: #900;
+  background-color: #FDD;
+}
+
+input:focus:invalid {
+  outline: none;
+}
+
+/* これはエラーメッセージ向けのスタイルです */
+.error {
+  width  : 100%;
+  padding: 0;
+
+  font-size: 80%;
+  color: white;
+  background-color: #900;
+  border-radius: 0 0 5px 5px;
+
+  box-sizing: border-box;
+}
+
+.error.active {
+  padding: 0.3em;
+}
+}

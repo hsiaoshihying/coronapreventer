@@ -25,3 +25,43 @@
     </p>
   </div>
 </div>
+
+<!--<script>-->
+<!--    const form  = document.getElementsByTagName('form')[0];-->
+
+<!--    const email = document.getElementById('session_mail');-->
+<!--    const error = document.querySelector('#session_mail + span.error');-->
+
+<!--    email.addEventListener("input", function (event) {-->
+<!--        // ユーザーが何かを入力するたびに、メールアドレスのフィールドが妥当かを-->
+<!--        // 確認します。-->
+<!--        if (email.validity.valid) {-->
+<!--            // エラーメッセージを表示している場合に、フィールドが妥当になれば-->
+<!--            // エラーメッセージを取り除きます。-->
+<!--            error.innerHTML = ""; // メッセージの内容物をリセットします-->
+<!--            error.className = "error"; // メッセージの表示状態をリセットします-->
+<!--        } else {-->
+<!--            // If there is still an error, show the correct error-->
+<!--            showError();-->
+<!--        }-->
+<!--    });-->
+
+<!--    function showError() {-->
+<!--        if(email.validity.valueMissing) {-->
+<!--            // If the field is empty-->
+<!--            // display the following error message.-->
+<!--            emailError.textContent = 'You need to enter an e-mail address.';-->
+<!--        } else if(email.validity.typeMismatch) {-->
+<!--            // If the field doesn't contain an email address-->
+<!--            // display the following error message.-->
+<!--            emailError.textContent = 'Entered value needs to be an e-mail address.';-->
+<!--        } else if(email.validity.tooShort) {-->
+<!--            // If the data is too short-->
+<!--            // display the following error message.-->
+<!--            emailError.textContent = `Email should be at least ${ email.minLength } characters; you entered ${ email.value.length }.`;-->
+<!--        }-->
+
+<!--        // Set the styling appropriately-->
+<!--        emailError.className = 'error active';-->
+<!--    }-->
+<!--</script>-->

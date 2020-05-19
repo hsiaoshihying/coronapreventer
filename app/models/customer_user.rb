@@ -15,7 +15,7 @@ class CustomerUser < ApplicationRecord
             uniqueness: { case_sensitive: false }
   validates :password, presence: true, length: { minimum: 6 } , allow_nil: true
   has_secure_password
-  validates :mynumber, presence: true, mynumber: true
+  validates :mynumber, presence: true, mynumber: true, uniqueness: true
   validates :address, presence: true, address: true
 
 
