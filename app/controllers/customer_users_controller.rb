@@ -18,7 +18,9 @@ class CustomerUsersController < ApplicationController
 
   def create
     @customer_user = CustomerUser.new(user_params)
+    customer_already_exits = CustomerUser.find_by_mynumber(@customer_user.mynumber)
     @personal_info = PersonalInfo.find_by(mynumber: @customer_user.mynumber)
+
     if @personal_info
       message = personal_info_authenticate(@personal_info, @customer_user)
       if @customer_user.save
@@ -26,7 +28,9 @@ class CustomerUsersController < ApplicationController
         flash[:success] = "登録成功！！買い物はじめよう"
         redirect_to @customer_user
       else
-        flash[:danger] = message
+        unless customer_already_exits
+          flash[:danger] = message
+        end
         render 'customer_users/new'
       end
     else

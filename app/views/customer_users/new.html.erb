@@ -20,8 +20,9 @@
       <%= f.text_field :address, class: 'form-control' %>
 
       <%= f.label :マイナンバー %>
-      <%= f.text_field :mynumber, class: 'form-control' %>
+      <%= f.password_field :mynumber, class: 'form-control' %>
 
+      <input type="checkbox" id="password-check">パスワードを表示する</br>
       <%= f.label :パスワード %>
       <%= f.password_field :password, class: 'form-control' %>
 
@@ -32,3 +33,15 @@
     <% end %>
   </div>
 </div>
+
+<script>
+    const pwd = document.getElementById('customer_user_password');
+    const pwdCheck = document.getElementById('password-check');
+    pwdCheck.addEventListener('change', function() {
+        if(pwdCheck.checked) {
+            pwd.setAttribute('type', 'text');
+        } else {
+            pwd.setAttribute('type', 'password');
+        }
+    }, false);
+</script>
