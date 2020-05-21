@@ -22,7 +22,7 @@ products = ["マスク", "ハンドソープ", "殺菌グッズ"]
 price_arr = [500, 1000, 300, 50, 770, 1300]
 total_num_arr = [30, 50, 100, 20, 10, 60]
 store_users = StoreUser.all
-created_time_arr = [Time.zone.now, 10.days.ago, 1.months.ago, 2.months.ago]
+created_time_arr = [Time.zone.now, 10.days.ago, 1.months.ago]
 10.times do
   name = products.sample
   price = price_arr.sample
@@ -43,6 +43,10 @@ end
                        name:  name,
                        address: address)
 end
+PersonalInfo.create!(mynumber: 12.times.map{rand(0...10)}.join,
+                     name:  "lily",
+                     address: "108-0014東京都港区芝浦三丁目1番51号")
+
 
 customer_user = CustomerUser.create!(name:  PersonalInfo.first.name,
                                phone: "07012345678",
